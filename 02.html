@@ -1,0 +1,107 @@
+<html>
+<head>
+  <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" >
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    * {padding: 0; margin: 0; box-sizing: border-box; 
+      font-family: 'Nanum Gothic', sans-serif;}
+    #page {width: 1000px; margin: 0 auto;}
+    header {display: flex; justify-content: space-between; align-items: center;
+            padding: 0 10px; margin-top:20px;}
+    header h1 {letter-spacing: 0.5em;}
+
+    #search input {width: 300px; margin-left: 20px; margin-right: 5px; 
+                  border: none;}
+    #search {width: 350px; border: 1px solid #ddd; height: 30px;
+      display: flex; align-items: center; border-radius: 20px;}
+    #search input:focus { outline: none;}
+    #menu i {margin: 0 5px;}
+    #menu i:hover {cursor: pointer;}
+
+    nav {height: 50px; display: flex; justify-content: center;
+      align-items: center; margin: 10px 0;}
+    .nav_ul {padding: 0;margin: 0;}
+    nav {background-color: #222;}
+    nav>ul {list-style: none; display: flex;}
+    nav>ul>li {background-color: #222; width: 120px; height: 50px;}
+    nav>ul>li>a {display: block; color: #eee; text-decoration: none;
+      text-align: center; height: 100%; padding-top: 12px;}
+    nav>ul>li:hover {border-bottom:5px solid lightseagreen; 
+      background-color: #444;}
+    nav>ul>li:hover a {color:#aaa}
+    main {display: flex; background-color: #eee;}
+    section {width: 800px; min-height: 800px; background-color: white;}
+    aside {width: 100px; height:200px; background-color: lightseagreen;}
+    section div h1 {text-align: center;}
+    #slider {width: 780px; margin-bottom: 15px;}
+    #slider_div button {width: 200px; margin: 0 5px;}
+    section {display: flex; justify-content: center;}
+    #slider_div>div{display: flex; justify-content: center;}
+    footer {height: 50px; border : 1px solid red;
+      line-height: 50px; text-align: center;}
+  </style>
+  </head>
+  <body>
+    <div id="page">
+      <header>
+        <h1>ICIA</h1>
+        <div id="search">
+          <input type="text" placeholder="검색어를 입력하세요">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div id="menu">
+          <i class="fa-solid fa-right-to-bracket" title="로그인"></i>
+          <i class="fa-solid fa-user" title="내정보"></i>
+          <i class="fa-solid fa-cart-shopping" title="장바구니"></i>
+        </div>
+      </header>
+      <nav>
+        <ul>
+          <li><a href="#">HOME</a></li>
+          <li><a href="#">LOGIN</a></li>
+          <li><a href="#">JOIN</a></li>
+          <li><a href="#">FIND</a></li>
+        </ul>
+      </nav>
+      <main>
+        <aside></aside>
+        <section>
+          <div id="aa">
+            <img id="aa" src="https://www.w3schools.com/howto/img_snow_wide.jpg">
+            <div>
+              <button type="button" class="btn btn-outline-primary" onclick="prevClick()">
+                <i class="fa-solid fa-arrow-left"></i>
+              </button>
+                <button type="button" class="btn btn-outline-primary" onclick="nextClick()">
+                  <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <aside></aside>
+      </main>
+      <footer>copyright ©2023 All Right Reserved</footer>
+    </div>
+      <script>
+        const images = [];
+        images[0] = 'https://www.w3schools.com/howto/img_woods_wide.jpg';
+        images[1] = 'https://www.w3schools.com/howto/img_5terre_wide.jpg';
+        images[2] = 'https://www.w3schools.com/howto/img_mountains_wide.jpg';
+        images[3] = 'https://www.w3schools.com/howto/img_snow_wide.jpg';
+        let index = 0;
+
+        const prev = document.querySelector('#prev');
+        const next = document.querySelector('#next');
+        const slider = document.querySelector('#slider');
+        slider.setAttribute('src', images[0]);
+
+        function prevClick() {
+          index--;if(index<0)
+              index=3; slider.setAttribute('src', images[index]);}
+        function nextClick() {
+          index++; if(index>3)
+              index=0; slider.setAttribute('src', images[index]);}    
+  </script>
+  </body>
+  </html>
